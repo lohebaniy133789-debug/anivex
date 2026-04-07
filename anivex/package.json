@@ -75,6 +75,7 @@
     "zod": "catalog:"
   },
   "dependencies": {
-    "@clerk/react": "^6.1.4"
+    "@clerk/react": "^6.1.4",
+    "hls.js": "^1.5.7"
   }
 }

@@ -1,29 +1,25 @@
 import { Route, Switch } from "wouter"
-import { TooltipProvider } from "@/components/ui/tooltip"
-import { Toaster } from "@/components/ui/sonner"
-import { ThemeProvider } from "@/components/theme-provider"
-import Layout from "@/components/layout/Layout"
-import HomePage from "@/pages/HomePage"
-import CatalogPage from "@/pages/CatalogPage"
-import AnimePage from "@/pages/AnimePage"
-import ProfilePage from "@/pages/ProfilePage"
-import NotFoundPage from "@/pages/NotFoundPage"
+import { SignIn, SignUp } from "@clerk/react"
+import AnivexPlatform from "@/pages/AnivexPlatform"
+
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, "")
 
 export default function App() {
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="anivex-theme">
-      <TooltipProvider>
-        <Layout>
-          <Switch>
-            <Route path="/" component={HomePage} />
-            <Route path="/catalog" component={CatalogPage} />
-            <Route path="/anime/:id" component={AnimePage} />
-            <Route path="/profile" component={ProfilePage} />
-            <Route component={NotFoundPage} />
-          </Switch>
-        </Layout>
-        <Toaster />
-      </TooltipProvider>
-    </ThemeProvider>
+    <Switch>
+      <Route path={`${basePath}/sign-in`}>
+        <div className="min-h-screen bg-[#050505] flex items-center justify-center p-4">
+          <SignIn routing="path" path={`${basePath}/sign-in`} afterSignInUrl={basePath || "/"} />
+        </div>
+      </Route>
+      <Route path={`${basePath}/sign-up`}>
+        <div className="min-h-screen bg-[#050505] flex items-center justify-center p-4">
+          <SignUp routing="path" path={`${basePath}/sign-up`} afterSignUpUrl={basePath || "/"} />
+        </div>
+      </Route>
+      <Route>
+        <AnivexPlatform />
+      </Route>
+    </Switch>
   )
 }
