@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useUser, useClerk, Show } from '@clerk/react';
+import { useUser, useClerk, Show } from '@/lib/clerk-wrapper';
 import { useLocation } from 'wouter';
 import AnimeStatusSelector from '@/components/AnimeStatusSelector';
 import ProfilePage from '@/pages/ProfilePage';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useUser, useClerk } from '@clerk/react';
+import { useUser, useClerk } from '@/lib/clerk-wrapper';
 
 interface ProfilePageProps {
   onClose: () => void;

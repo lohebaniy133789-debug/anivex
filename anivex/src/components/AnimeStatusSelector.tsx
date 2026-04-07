@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useUser } from '@clerk/react';
+import { useUser } from '@/lib/clerk-wrapper';
 import { api } from '@/lib/api';
 
 const STATUSES = [
